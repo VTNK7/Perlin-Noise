@@ -1,15 +1,23 @@
-// 1D Perlin Noise
+// 2D Perlin Noise Demo With Moving Line
 
-var xoff = 0;
+
+start = 0;
+incr = 0.01;
 function setup() {
     createCanvas(400, 400);
   }
   
   function draw() {
     background(51);
-    //var x = random(width);
-    var x = map(noise(xoff),0,1,0,width);
-    xoff += 0.01;
-    
-    ellipse(x, 200, 24, 24)
+    beginShape();
+    noFill();
+    var xoff = start;
+    for (var x = 0; x <= width; x ++) {
+      stroke(255);
+      var y = noise(xoff) * height;
+      vertex(x, y);
+      xoff += 2*incr;
+    }
+    endShape();
+    start += incr;
 }
