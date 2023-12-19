@@ -1,7 +1,5 @@
 
 
-
-
 var inc = 0.1;
 var scl = 10;
 var cols, rows;
@@ -11,7 +9,7 @@ var particles= [];
 var flowfield= [];
 
 function setup() {
-  createCanvas(200, 200 );
+  createCanvas(400, 400 );
   cols = floor(width / scl);
   rows = floor(height / scl);
   fr = createP('');
@@ -19,13 +17,13 @@ function setup() {
   for (var i = 0; i < 500; i++) {
     particles[i] = new Particle();
   } 
-  background(600);
+
 }
 
 var zoff = 0;
 var aoff = 0;
 function draw() {
-
+  background(600);
   var yoff = 0;
   for (var y = 0; y < rows; y++) {
     var xoff = 0;
@@ -41,12 +39,12 @@ function draw() {
       
       xoff += inc;
 
-      // stroke(0,50);
-      // push();
-      // translate(x * scl, y * scl);
-      // rotate(v.heading());
-      // line(0, 0, scl, 0);
-      // pop();
+      stroke(0,50);
+      push();
+      translate(x * scl, y * scl);
+      rotate(v.heading());
+      line(0, 0, scl, 0);
+      pop();
     }
     yoff += inc;
     aoff += 0.001;
